@@ -100,6 +100,9 @@ objective — not a tuning problem.
        flagging your own confound reads as honest and is the right call.
      Interleave each figure next to the sentence it supports. -->
 
+<img width="1106" height="986" alt="landscape3d" src="https://github.com/user-attachments/assets/ee5d65cb-624f-463b-9ea9-45394ff6be6a" />
+
+
 ### 3. Qualitative error analysis: missing world knowledge
 
 The residual errors concentrate on commands referencing real products and services the model has
