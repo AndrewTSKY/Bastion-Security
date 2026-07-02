@@ -116,15 +116,15 @@ weights — lookup-style representations rather than distributed understanding.
 
 ## Root cause (localized, not proven)
 
-The three findings converge: the domain pretrain was **saturated** — more of the same corpus
-would not help — but the model was pretrained at Chinchilla-optimal *token count* and far under
+The three findings converge: the domain pretrain was **saturated**, more of the same corpus
+would not help, but the model was pretrained at Chinchilla-optimal *token count* and far under
 the scale needed to build a relational world-knowledge substrate. The information setting the val
 floor lives outside the domain distribution, so no fine-tuning recipe can reach it. The likely fix
-is a **broader** pretraining corpus supplying world knowledge, not more domain data and not simply
-longer training — which is where the real compute cost sits.
+is a broader pretraining corpus supplying world knowledge, not more domain data and not simply
+longer training. Which is where the real compute cost sits.
 
-The honest boundary: the confirming ablation — pretrain a broader-corpus variant and watch the
-floor drop — was **compute-gated and never run**. So the ceiling is *localized* to pretraining
+The honest boundary: the confirming ablation a pretrain with a broader-corpus variant and watch the
+floor drop, was compute-gated and never run. So the ceiling is *localized* to pretraining
 substrate scale by converging evidence (invariant floor, basin geometry, entity-confusion errors),
 not *proven* by ablation.
 
