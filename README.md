@@ -124,7 +124,7 @@ This characterizes the SFT objective's behavior, but it does not appear to be th
 
 ## Root cause (localized, not proven)
 
-The three findings converge: the domain pretrain was **saturated**, more of the same corpus
+The three findings converge: the domain pretrain was **saturated** within the domain, more of the same corpus
 would not help, but the model was pretrained at Chinchilla-optimal *token count* and far under
 the scale needed to build a relational world-knowledge substrate. The information setting the val
 floor lives outside the domain distribution, so no fine-tuning recipe can reach it. The likely fix
