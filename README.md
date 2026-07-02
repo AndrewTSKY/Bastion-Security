@@ -19,28 +19,16 @@ so this is a *localized* root cause, not a proven one.
 
 ---
 
-## Why nothing is released
-
-The trained weights, dataset, tokenizer, and training/inference pipeline are withheld. Assembled,
-they lower the barrier to producing a model that generates malicious PowerShell. The diagnostic
-methodology and results below carry no such uplift, so everything that demonstrates the work is
-here and everything dual-use is not. This is consistent with the dual-use handling expected under
-[CVP / responsible-disclosure norms — edit to taste].
-
-<!-- ARTIFACT: none. This section is prose only. To a security audience this reads as maturity — keep it. -->
-
----
-
 ## Architecture
 
-Custom decoder-only transformer, trained from scratch.
+Custom decoder-only transformer, trained from scratch.  A small parameter model scaled to AMSI speed inference utilizing FlashAttention2.
 
 <!-- ARTIFACT: config table. Safe to publish in full — hyperparameters are not weaponizable.
      Drop a clean table of: params (~460M), layers (18), d_model (1280), heads (10), FF (6144),
      vocab (32768), RoPE base (50000), FlashAttention-2, ~9.6B training tokens.
      Source: your training config. Do NOT include data-recipe or corpus-construction details. -->
 
-Tokenizer: extended from a CodeLlama base with domain-specific additions (details withheld).
+Tokenizer: extended from a huggingface tokenizer base with domain-specific additions (details withheld).
 
 ## Method
 
@@ -155,6 +143,16 @@ not *proven* by ablation.
 <!-- ARTIFACT: none. -->
 
 ---
+
+## Why nothing is released
+
+The trained weights, dataset, tokenizer, and training/inference pipeline are withheld. Assembled,
+they lower the barrier to producing a model that generates malicious PowerShell. The diagnostic
+methodology and results below carry no such uplift, so everything that demonstrates the work is
+here and everything dual-use is not. This is consistent with the dual-use handling expected under
+[CVP / responsible-disclosure norms — edit to taste].
+
+<!-- ARTIFACT: none. This section is prose only. To a security audience this reads as maturity — keep it. -->
 
 ## License / contact
 
