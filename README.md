@@ -59,12 +59,11 @@ substrate*, which points the ceiling at pretraining scope rather than classifier
 
 Three findings, in order of strength.
 
-### 1. The reasoning trace does not cause the verdict
+### 1. Reasoning-to-verdict coupling is weak, and regime-dependent
 
-Causal swap tests: substituting the reasoning block and measuring the effect on the final
-CLASSIFY verdict show a causal strength of **+0.066**. The verdict is very nearly invariant to
-the reasoning that precedes it: the trace is decorative, and cross-entropy SFT admits pure
-imitation of the trace as a sufficient solution without the trace becoming load-bearing.
+Causal swap tests: substituting the reasoning block and measuring the effect on the CLASSIFY verdict. This show weak coupling in the baseline (causal strength +0.066): CE-SFT admits imitating the trace without it becoming load-bearing, 
+but this is not uniform across training regimes. The regularized, wider-basin checkpoint weighted the reasoning more heavily than the non-regularized one. How much the trace drives the verdict is a function of the training setup, not a fixed property.
+This characterizes the SFT objective's behavior, but it does not appear to be the performance ceiling. The ceiling is set by pretraining substrate (below), independent of whether the reasoning is load-bearing.
 
 <!-- ARTIFACT: swap-test methodology + result. Publish the METHOD (how you swapped, what you
      measured) and the +0.066 number. A small before/after table or bar figure works.
