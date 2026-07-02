@@ -1,16 +1,16 @@
 # Bastion-Security
 Transformer Based Powershell detector
 
-# Bastion — Reasoning-Distilled PowerShell Threat Classifier (Post-Mortem)
+# Bastion-Security: Reasoning-Distilled PowerShell Threat Classifier
 
 A research post-mortem on a small (~460M) decoder-only model trained to classify PowerShell as
 malicious/benign *with an explicit reasoning trace*, then map malicious samples to attacker TTPs.
 The project reached a hard performance ceiling. This repo documents what was built, what was
-measured, and where the evidence localizes the ceiling — it does **not** release the model,
+measured, and where the evidence localizes the ceiling. It does **not** release the model,
 data, or pipeline (see [Why nothing is released](#why-nothing-is-released)).
 
 **Bottom line:** the classifier hit ~93% malicious-correct but did not meet its design target.
-The evidence localizes the ceiling to **pretraining substrate scale** — the domain corpus was
+The evidence localizes the ceiling to **pretraining substrate scale**. The domain corpus was
 saturated, but the model lacked the world-knowledge representations needed to generalize over
 the entities real commands reference. The confirming ablation was compute-gated and never run,
 so this is a *localized* root cause, not a proven one.
@@ -45,7 +45,7 @@ Tokenizer: extended from a CodeLlama base with domain-specific additions (detail
 ## Method
 
 Supervised fine-tuning on **frontier reasoning distillation**: a frontier teacher produced the
-reasoning traces, and — critically — **the teacher was never shown the ground-truth label**. The
+reasoning traces, and critically **the teacher was never shown the ground-truth label**. The
 traces are the teacher's own reasoning toward a verdict, not post-hoc justification of a known
 answer. This is the same principle as open-source reasoning distillation.
 
@@ -73,8 +73,8 @@ Three findings, in order of strength.
 
 ### 1. The reasoning trace does not cause the verdict
 
-Causal swap tests — substituting the reasoning block and measuring the effect on the final
-CLASSIFY verdict — show a causal strength of **+0.066**. The verdict is very nearly invariant to
+Causal swap tests: substituting the reasoning block and measuring the effect on the final
+CLASSIFY verdict show a causal strength of **+0.066**. The verdict is very nearly invariant to
 the reasoning that precedes it: the trace is decorative, and cross-entropy SFT admits pure
 imitation of the trace as a sufficient solution without the trace becoming load-bearing.
 
@@ -103,10 +103,10 @@ objective — not a tuning problem.
 ### 3. Qualitative error analysis: missing world knowledge
 
 The residual errors concentrate on commands referencing real products and services the model has
-no concept of — package managers (e.g. Chocolatey), common services (e.g. Google), and similar
+no concept of, package managers (e.g. Chocolatey), common services (e.g. Google), and similar
 named entities. Lacking a representation of what these *are*, the model surface-matches on tokens
-and misclassifies. This is consistent with the layer-0 knowledge concentration observed in the
-weights — lookup-style representations rather than distributed understanding.
+and misclassifies. This is consistent with the knowledge concentration observed in the
+weights.
 
 <!-- ARTIFACT: 2–4 sanitized error cases. BENIGN commands only — benign invocations that were
      misclassified because the model didn't recognize the referenced entity. Never a working
