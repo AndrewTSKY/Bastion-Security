@@ -149,8 +149,8 @@ not *proven* by ablation.
 The trained weights, dataset, tokenizer, and training/inference pipeline are withheld. Assembled,
 they lower the barrier to producing a model that generates malicious PowerShell. The diagnostic
 methodology and results below carry no such uplift, so everything that demonstrates the work is
-here and everything dual-use is not. This is consistent with the dual-use handling expected under
-[CVP / responsible-disclosure norms — edit to taste].
+here and everything dual-use is not. As a security professional my primary obligation is ensuring that I 
+do not provide any functional exploits that could be weaponized via my ML research.
 
 <!-- ARTIFACT: none. This section is prose only. To a security audience this reads as maturity — keep it. -->
 
