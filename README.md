@@ -1,6 +1,3 @@
-# Bastion-Security
-Transformer Based Powershell detector
-
 # Bastion-Security: Reasoning-Distilled PowerShell Threat Classifier
 
 A research post-mortem on a small (~460M) decoder-only model trained to classify PowerShell as
