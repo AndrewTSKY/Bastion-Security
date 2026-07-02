@@ -40,10 +40,18 @@ answer. This is the same principle as open-source reasoning distillation.
 ---
 
 ## Results
-
-<!-- ARTIFACT: eval table. Publish the STABLE no_thinking figures, not the best-run checkpoint
-     with the provenance issue. Columns: malicious-correct %, false-positive %, TTP-root %.
-     State the split size. This is the defensible headline; metrics alone are not weaponizable. -->
+| Metric | no_thinking_brief | thinking_brief |
+|---|---|---|
+| n | 275 | 267 |
+| Classify accuracy | 92.7% | 88.4% |
+| TTP root accuracy | 79.6% | 66.7% |
+| Both correct | 79.6% | 66.7% |
+| Malicious correct | 94.49% (120/127) | 92.13% (117/127) |
+| False positive | 8.78% (13/148) | 15.00% (21/140) |
+| Missing fields | 0/275 | 1/267 |
+| Parse fail | 0 | 0 |
+| Generated tokens | 6,581 | 91,741 |
+| Generate tok/s | 219.0 | 309.0 |
 
 The classifier reached **~93% malicious-correct** on held-out evaluation with a non-trivial
 false-positive rate. **It did not meet its design target.** The number matters here not as a
