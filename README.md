@@ -82,8 +82,8 @@ weights.
 
 Training loss descends below the validation floor, but the val floor is a single hard bottom
 (~1.4) that does not move across learning-rate schedules, regularization, or the weight-space
-path connecting the two best checkpoints. The loss basin is deep and narrow with one minimum,
-and that minimum sits *above* reachable training loss. A floor that is invariant to the training
+path connecting the two best checkpoints. The loss basin is deep and narrow with a deep narrow global minimum,
+and that minimum sits *above* reachable training loss. There is a very high shallow second local minima, and a floor that is invariant to the training
 recipe and sits outside the reachable region is the signature of information missing from the
 objective — not a tuning problem.
 
