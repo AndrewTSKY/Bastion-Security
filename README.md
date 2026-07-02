@@ -101,10 +101,12 @@ objective — not a tuning problem.
      Interleave each figure next to the sentence it supports. -->
 
 <img width="820" height="780" alt="landscape3d" src="https://github.com/user-attachments/assets/ee5d65cb-624f-463b-9ea9-45394ff6be6a" />
-A representation of the loss basin
+###A representation of the loss basin
+
+
 
 <img width="820" height="780" alt="basin2d" src="https://github.com/user-attachments/assets/55500e7b-c5cd-4b53-90b5-38c56b3c4604" />
-A visualation of the basin where both a regularized and unregularized finetune land in the same basin
+###A visualation of the basin where both a regularized and unregularized finetune land in the same basin
 
 
 ### 3. Qualitative error analysis: missing world knowledge
