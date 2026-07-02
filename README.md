@@ -59,15 +59,17 @@ substrate*, which points the ceiling at pretraining scope rather than classifier
 
 Three findings, in order of strength.
 
-### 1. Reasoning-to-verdict coupling is weak, and regime-dependent
+### 1. Qualitative error analysis: missing world knowledge
 
-Causal swap tests: substituting the reasoning block and measuring the effect on the CLASSIFY verdict. This show weak coupling in the baseline (causal strength +0.066): CE-SFT admits imitating the trace without it becoming load-bearing, 
-but this is not uniform across training regimes. The regularized, wider-basin checkpoint weighted the reasoning more heavily than the non-regularized one. How much the trace drives the verdict is a function of the training setup, not a fixed property.
-This characterizes the SFT objective's behavior, but it does not appear to be the performance ceiling. The ceiling is set by pretraining substrate (below), independent of whether the reasoning is load-bearing.
+The residual errors concentrate on commands referencing real products and services the model has
+no concept of, package managers (e.g. Chocolatey), common services (e.g. Google), and similar
+named entities. Lacking a representation of what these *are*, the model surface-matches on tokens
+and misclassifies. This is consistent with the knowledge concentration observed in the
+weights.
 
-<!-- ARTIFACT: swap-test methodology + result. Publish the METHOD (how you swapped, what you
-     measured) and the +0.066 number. A small before/after table or bar figure works.
-     This is your strongest safe result — give it room. -->
+<!-- ARTIFACT: 2–4 sanitized error cases. BENIGN commands only — benign invocations that were
+     misclassified because the model didn't recognize the referenced entity. Never a working
+     malicious sample. A small table (command → true label → predicted → likely reason) is ideal. -->
 
 ### 2. A hard, recipe-invariant validation floor
 
@@ -100,19 +102,15 @@ A representation of the loss basin
 
 A visualation of the basin where both a regularized and unregularized finetune land in the same basin
 
+### 3. Reasoning-to-verdict coupling is weak, and regime-dependent
 
-### 3. Qualitative error analysis: missing world knowledge
+Causal swap tests: substituting the reasoning block and measuring the effect on the CLASSIFY verdict. This show weak coupling in the baseline (causal strength +0.066): CE-SFT admits imitating the trace without it becoming load-bearing, 
+but this is not uniform across training regimes. The regularized, wider-basin checkpoint weighted the reasoning more heavily than the non-regularized one. How much the trace drives the verdict is a function of the training setup, not a fixed property.
+This characterizes the SFT objective's behavior, but it does not appear to be the performance ceiling. The ceiling is set by pretraining substrate (below), independent of whether the reasoning is load-bearing.
 
-The residual errors concentrate on commands referencing real products and services the model has
-no concept of, package managers (e.g. Chocolatey), common services (e.g. Google), and similar
-named entities. Lacking a representation of what these *are*, the model surface-matches on tokens
-and misclassifies. This is consistent with the knowledge concentration observed in the
-weights.
-
-<!-- ARTIFACT: 2–4 sanitized error cases. BENIGN commands only — benign invocations that were
-     misclassified because the model didn't recognize the referenced entity. Never a working
-     malicious sample. A small table (command → true label → predicted → likely reason) is ideal. -->
-
+<!-- ARTIFACT: swap-test methodology + result. Publish the METHOD (how you swapped, what you
+     measured) and the +0.066 number. A small before/after table or bar figure works.
+     This is your strongest safe result — give it room. -->
 ---
 
 ## Root cause (localized, not proven)
