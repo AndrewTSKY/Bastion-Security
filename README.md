@@ -89,7 +89,8 @@ objective — not a tuning problem.
        flagging your own confound reads as honest and is the right call.
      Interleave each figure next to the sentence it supports. -->
 
-<img width="820" height="780" alt="landscape3d" src="https://github.com/user-attachments/assets/6edb0c16-642b-4767-89e1-656176dce2fb" />
+<img width="820" height="780" alt="landscape3d" src="https://github.com/user-attachments/assets/e3f3ebb4-2011-4786-8b2a-9b988c1eeb6a" />
+
 
 
 
