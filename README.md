@@ -13,8 +13,6 @@ saturated, but the model lacked the world-knowledge representations needed to ge
 the entities real commands reference. The confirming ablation was compute-gated and never run,
 so this is a *localized* root cause, not a proven one.
 
-<!-- ARTIFACT: none needed here. Keep this summary tight; it's the part most readers actually read. -->
-
 ---
 
 ## Architecture
@@ -101,8 +99,6 @@ objective — not a tuning problem.
 
 
 
-
-
 A representation of the loss basin
 
 
@@ -110,7 +106,7 @@ A representation of the loss basin
 <img width="820" height="780" alt="basin2d" src="https://github.com/user-attachments/assets/55500e7b-c5cd-4b53-90b5-38c56b3c4604" />
 
 
-A visualation of the basin where both a regularized and unregularized finetune land in the same basin
+A visualization of the basin where both a regularized and unregularized finetune land in the same basin
 
 ### 3. Reasoning-to-verdict coupling is weak, and regime-dependent
 
@@ -137,17 +133,12 @@ floor drop, was compute-gated and never run. So the ceiling is *localized* to pr
 substrate scale by converging evidence (invariant floor, basin geometry, entity-confusion errors),
 not *proven* by ablation.
 
-<!-- ARTIFACT: none — synthesis section, prose only. This paragraph is the spine of the repo;
-     the "localized not proven" phrasing is what survives a sharp reader. Don't soften it. -->
-
 ---
 
 ## What a continuation would test
 
 - Broader-corpus pretrain (world knowledge) at fixed downstream recipe → does the val floor drop?
 - A reasoning objective that makes the trace load-bearing (given finding #1, CE-SFT does not).
-
-<!-- ARTIFACT: none. -->
 
 ---
 
@@ -159,7 +150,6 @@ methodology and results below carry no such uplift, so everything that demonstra
 here and everything dual-use is not. As a security professional my primary obligation is ensuring that I 
 do not provide any functional exploits that could be weaponized via my ML research.
 
-<!-- ARTIFACT: none. This section is prose only. To a security audience this reads as maturity — keep it. -->
 
 ## License / contact
 
