@@ -56,7 +56,9 @@ answer. This is the same principle as open-source reasoning distillation.
 The classifier reached **~93% malicious-correct** on held-out evaluation with a non-trivial
 false-positive rate. **It did not meet its design target.** The number matters here not as a
 success claim but as a locator: the method reaches ~93% *while starved of a world-knowledge
-substrate*, which points the ceiling at pretraining scope rather than classifier design (below).
+substrate*, which points the ceiling at pretraining scope rather than classifier design.  No thinking surpassing thinking is a by-product of reasoning not being entirely load bearing to its decision making,
+but as seen by its increased false positive rate which is attributed to the reasoning concluding that otherwise benign services seen in unusual ways constituted malicious was driven in large part by the lack of global knowledge.
+While TTP failures appear to be the largest issue the TTP's have more of a tokenizer issue than a knowledge issue, but also requires the new pretrain to solve.
 
 ---
 
