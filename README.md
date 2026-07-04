@@ -1,5 +1,8 @@
 # Bastion-Security: Reasoning-Distilled PowerShell Threat Classifier
 ---
+Examples coming soon.  I have to review examples and ensure that I am not relasing anything malicious.
+
+---
 
 A research post-mortem on a small (~460M) decoder-only model trained to classify PowerShell as
 malicious/benign *with an explicit reasoning trace*, then map malicious samples to attacker TTPs.
